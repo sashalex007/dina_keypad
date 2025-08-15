@@ -1,7 +1,15 @@
 #include <dt-bindings/zmk/matrix_transform.h> // Put this with the other includes at the top of your overlay
 
 / {
-    &kscan0 {
+
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
+        // Other chosen items
+    };
+
+    &kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
         diode-direction = "col2row";
@@ -47,11 +55,5 @@
         transform = <&default_transform>; // Label of the matrix transform for this layout
     };
 
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
-        zmk,physical-layout = &physical_layout0;
-        // Other chosen items
-    };
 
 };
