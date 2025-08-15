@@ -4,13 +4,24 @@
 #define ___ &trans
 
 / {
+
+    macros {
+        calc: zed_em_kay {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LG(R) &kp C &kp A &kp L &kp C>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer { 
 
             bindings = <
-                ___    ___         ___        ___
+                &calc    &kp LG(LS(S))         ___        ___
 
                 ___    &kp FSLH    &kp STAR   &kp MINUS
 
